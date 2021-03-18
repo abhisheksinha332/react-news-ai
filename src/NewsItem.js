@@ -34,7 +34,7 @@ const NewsItem = ({article:{ description, publishedAt,source, title, url, urlToI
     
       <Card className={ activeArticle === index ? classes.activeCard : classes.card}  ref={elRefs[index]}>
             <CardActionArea href={url} target="_blank">
-                <CardMedia className={classes.media} image={urlToImage} />
+                <CardMedia className={classes.media} image={urlToImage || 'https://www.windowscentral.com/sites/wpcentral.com/files/styles/xlarge_wm_blw/public/field/image/2016/12/windows-10-news-apps.jpg?itok=swH6brmE' } />
                 {/* <img src={urlToImage} /> */}
                 <div className={classes.details}>
                     <Typography variant="body2" color="textSecondary" component="h2">{(new Date(publishedAt)).toDateString()}</Typography>
@@ -46,7 +46,7 @@ const NewsItem = ({article:{ description, publishedAt,source, title, url, urlToI
                 </CardContent>
             </CardActionArea>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary">Learn More</Button>
+                <Button size="small" color="primary" href={url} target="_blank">Learn More</Button>
                 <Typography variant="h5" color="textSecondary">{index+1} </Typography>
             </CardActions>
         </Card>
